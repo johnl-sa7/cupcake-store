@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+    app:
+        build:
+            context: ../
+            dockerfile: Dockerfile
+        ports:
+            - '8080:3049'
+        environment:
+            DATABASE_URL: ${DATABASE_URL}
+        depends_on:
+            - db
+        volumes:
+            - ..:/usr/src/app
+            - /usr/src/app/node_modules
+    db:
+        image: postgres
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        volumes:
+            - ../pgdata:/var/lib/postgresql/data
+        ports:
+            - '5432:5432'

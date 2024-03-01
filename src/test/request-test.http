@@ -1,0 +1,32 @@
+### Get All
+GET http://localhost:3049/api/cupcake
+Accept: application/json
+
+### Get by ID
+GET http://localhost:3049/api/cupcake/7
+Accept: application/json
+
+### Create
+POST http://localhost:3049/api/cupcake
+Content-Type: application/json
+
+{
+    "name": "Car",
+    "description": "Caramel",
+    "price": 2.5,
+    "ingredients": ["flour", "egg", "sugar"]
+}
+
+### Update by ID
+PATCH http://localhost:3049/api/cupcake/9
+Content-Type: application/json
+
+{
+    "name": "Car",
+    "description": "Caramelll",
+    "ingredients": ["flour", "egg", "caramel"]
+}
+
+### Create
+DELETE http://localhost:3049/api/cupcake/8
+# Content-Type: application/json
